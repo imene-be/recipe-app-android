@@ -1,87 +1,58 @@
-# FoodApp Kotlin
+# FoodApp
 
-Projet Android réalisé dans le cadre d'un cours, par un groupe de 3 :
-**Imene Bentifraouine, Lyam Matic, Ewen Lukacik**
+Application Android de recettes de cuisine, entièrement en Kotlin et Jetpack Compose. Projet de groupe réalisé en cours, avec une attention particulière portée à l'interface.
 
-L'idée c'était de faire une appli de recettes de cuisine, avec une interface propre en Jetpack Compose. On a essayé de rendre ça le plus complet possible côté UI même si la partie données est encore statique pour l'instant.
+## Fonctionnalités
 
----
+- Écran d'accueil avec les recettes classées par catégorie
+- Recherche et liste des catégories
+- Fiche détaillée de chaque plat (description, ingrédients, informations)
+- Page des favoris
+- Profil utilisateur avec statistiques et menu (modifier le profil, favoris, contact, déconnexion)
+- Barre de navigation en bas (Accueil, Recherche, Favoris, Profil)
+- Écrans de lancement, de connexion et d'inscription
 
-## Ce que fait l'appli
+## Technologies
 
-- Un écran d'accueil avec des recettes organisées par catégorie
-- Une recherche avec listing de catégories
-- Une page détail pour chaque plat (description, ingrédients, infos)
-- Une page favoris
-- Un profil utilisateur avec stats et menu (modifier profil, favoris, contact, déconnexion)
-- Navigation avec une barre en bas (Accueil, Recherche, Favoris, Profil)
-- Écrans de connexion et inscription
-
----
-
-## Stack
-
-- **Kotlin** avec **Jetpack Compose** pour toute l'UI
-- **Material Design 3**
-- **Navigation Compose** pour les routes
-- Une seule Activity, tout le reste c'est des écrans Composable
-- Gradle 8 (KTS) + Version Catalog
-- SDK min 24, cible 36
-
----
+- Kotlin
+- Jetpack Compose et Material Design 3
+- Navigation Compose
+- Une seule `Activity`, tous les écrans sont des composables
+- Gradle (Kotlin DSL) avec catalogue de versions
+- SDK minimum 24
 
 ## Structure
 
 ```
 app/src/main/java/com/example/foodapp_kotlin/
-├── MainActivity.kt               # point d'entrée + nav
-└── ui/
-    ├── components/
-    │   ├── MainScaffold.kt       # wrapper avec topbar + bottombar
-    │   ├── TopBar.kt
-    │   ├── BottomBar.kt
-    │   ├── FoodSection.kt        # section avec titre + "voir tout"
-    │   ├── RecipeCard.kt         # carte recette
-    │   └── CategoryCard.kt       # carte catégorie
-    ├── screens/
-    │   ├── SplashScreen.kt           # écran de lancement avec logo, redirige vers login
-    │   ├── LoginScreen.kt            # connexion avec email/mot de passe
-    │   ├── RegisterScreen.kt         # création de compte
-    │   ├── HomeScreen.kt             # accueil avec recettes en vedette et sections par catégorie
-    │   ├── SearchScreen.kt           # barre de recherche + liste des catégories
-    │   ├── DishScreen.kt             # détail complet d'un plat (description, ingrédients, prix)
-    │   ├── FavoritesScreen.kt        # grille des recettes sauvegardées
-    │   ├── ProfileScreen.kt          # profil utilisateur avec stats et menu
-    │   ├── EditProfileScreen.kt      # formulaire pour modifier les infos du profil
-    │   ├── ContactScreen.kt          # formulaire de contact
-    │   ├── AllRecipesScreen.kt       # toutes les recettes d'une catégorie
-    │   └── CategoryDetailScreen.kt   # détail d'une catégorie avec filtres
-    └── theme/
-        ├── Theme.kt
-        ├── Color.kt
-        └── Type.kt
+  MainActivity.kt        point d'entrée et navigation
+  model/                 Recipe, Category, UserPreference
+  data/                  base de données de l'application
+  ui/
+    components/          MainScaffold, TopBar, BottomBar, RecipeCard, CategoryCard, FoodSection
+    screens/             Splash, Login, Register, Home, Search, Dish, Favorites,
+                         Profile, EditProfile, Contact, AllRecipes, CategoryDetail
+    theme/               couleurs, typographie, thème
 ```
-
----
 
 ## Lancer le projet
 
-1. Cloner le repo
+1. Cloner le dépôt :
    ```bash
-   git clone https://github.com/Ewen-Lukacik/FoodApp-Kotlin.git
+   git clone https://github.com/imene-be/recipe-app-android.git
    ```
-2. Ouvrir dans **Android Studio** (Hedgehog ou plus récent)
-3. Sync Gradle puis lancer sur un émulateur ou un vrai téléphone (API 24+)
+2. L'ouvrir avec **Android Studio** (Hedgehog ou plus récent).
+3. Laisser Gradle se synchroniser, puis lancer sur un émulateur ou un téléphone (Android 7.0 minimum).
 
----
+## État du projet
 
-## Ce qui reste à faire
+Les recettes sont pour l'instant des données statiques. Pistes pour la suite :
 
 - Connecter une vraie base de données (Room ou Firebase)
 - Rendre les favoris persistants
-- Implémenter la recherche pour de vrai
-- Peut-être ajouter un système d'auth réel
+- Implémenter la recherche
+- Ajouter une authentification réelle
 
 ---
 
-*Projet scolaire — Imene Bentifraouine, Lyam Matic, Ewen Lukacik*
+Projet réalisé en groupe par [Imène Bentifraouine](https://imenebe.fr), Lyam Matic et Ewen Lukacik.
